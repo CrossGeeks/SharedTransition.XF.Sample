@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Prism:PrismApplication  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SharedTransitionPrimSample.App"
+             xmlns:Prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms">
+    <Application.Resources/>
+</Prism:PrismApplication>

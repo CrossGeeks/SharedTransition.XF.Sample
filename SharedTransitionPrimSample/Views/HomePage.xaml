@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SharedTransitionPrimSample.Views.HomePage"
+             xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+             sharedTransitions:SharedTransitionNavigationPage.TransitionSelectedGroup="{Binding SelectedPlaceId}"
+             sharedTransitions:SharedTransitionNavigationPage.TransitionDuration="300"
+             sharedTransitions:SharedTransitionNavigationPage.BackgroundAnimation="Flip"
+             Title="Dominican Republic">
+      <CollectionView ItemsSource="{Binding Places}"
+                      SelectionMode="None"
+                      Margin="0,80,0,0"
+                      x:Name="PlaceCollection">
+           <CollectionView.ItemTemplate>
+               <DataTemplate>
+                   <StackLayout>
+                      <Grid Padding="10">
+                               <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BindingContext.NavigateToDetailCommand, Source={x:Reference PlaceCollection}}"
+                                                  CommandParameter="{Binding .}"/>
+                        </Grid.GestureRecognizers>
+                               <Image Source="{Binding Image}"
+                                      sharedTransitions:Transition.Name="PlaceImage"
+                                      sharedTransitions:Transition.Group="{Binding Id}"
+                                      HorizontalOptions="FillAndExpand"
+                                      Aspect="AspectFill"/>
+
+                               <Label Text="{Binding Title}"
+                                      TextColor="White"
+                                      Padding="10"
+                                      VerticalOptions="EndAndExpand"
+                                      BackgroundColor="Black"/>
+                           </Grid>
+                 </StackLayout>
+               </DataTemplate>
+           </CollectionView.ItemTemplate>
+     </CollectionView>
+</ContentPage>

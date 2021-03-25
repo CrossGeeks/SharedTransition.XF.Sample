@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SharedTransitionPrimSample.Views.DetailPage"
+             xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+             xmlns:prism="http://prismlibrary.com"
+             NavigationPage.HasBackButton="False">
+    <Grid BindingContext="{Binding PlaceSelected}"
+          RowDefinitions="Auto, Auto,Auto"
+          ColumnDefinitions="*">
+            <Image Source="{Binding Image}"
+                   sharedTransitions:Transition.Name="PlaceImage"
+                   Aspect="AspectFill"
+                   HorizontalOptions="FillAndExpand"
+                   HeightRequest="400"
+                   Grid.Row="0"/>
+
+             <Button Text="←"
+                     BackgroundColor="Black"
+                     Margin="20,80,20,0"
+                     Padding="0"
+                     VerticalOptions="Start"
+                     HorizontalOptions="Start"
+                     TextColor="White"
+                     FontSize="40"
+                     Grid.Row="0"
+                     Command="{prism:GoBack}"/>
+
+             <Label Text="{Binding Title}"
+                    FontSize="Title"
+                    HorizontalOptions="Center"
+                    Grid.Row="1"/>
+
+             <Label Text="{Binding Description}"               
+                    FontSize="Small"
+                    FontAttributes="Italic"
+                    Padding="10,0"
+                    Grid.Row="2"/>
+        </Grid>
+</ContentPage>
+    
